@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::all();
+        return Category::all();
     }
 
     /**
@@ -29,10 +29,9 @@ class ProductController extends Controller
             'name' => 'required',
             'slug' => 'required',
             'description' => 'required',
-            'price' => 'required'
         ]);
 
-        return Product::create($request->all());
+        return Category::create($request->all());
     }
 
     /**
@@ -43,7 +42,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return Product::find($id);
+        return Category::find($id);
     }
 
     /**
@@ -55,9 +54,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::find($id);
-        $product->update($request->all());
-        return $product;
+        $category = Category::find($id);
+        $category->update($request->all());
+        return $category;
     }
 
     /**
@@ -68,7 +67,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        return Product::destroy($id);
+        return Category::destroy($id);
     }
 
      /**
@@ -77,8 +76,8 @@ class ProductController extends Controller
      * @param  str  $name
      * @return \Illuminate\Http\Response
      */
-    public function search($id)
+    public function search($name)
     {
-        return Product::where('id', 'like', '%'.$id.'%')->with('subcategory')->get();
+        return Category::where('name', 'like', '%'.$name.'%')->get();
     }
 }

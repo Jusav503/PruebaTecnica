@@ -39,11 +39,5 @@ class CategorySeeder extends Seeder
             'slug' => Str::slug('Tecnología'),
             'image' => "https://newstextarea.com/wp-content/uploads/2022/02/Technology-will-strengthen-Turkeys-socio-economic-growth.jpg"
         ]);
-
-        Category::create([
-            'name' => 'Moda',
-            'slug' => Str::slug('Moda'),
-            'image' => "https://newstextarea.com/wp-content/uploads/2022/02/Technology-will-strengthen-Turkeys-socio-economic-growth.jpg"
-        ]);
     }
 }
