@@ -4,16 +4,24 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-jet-nav-link href="{{route('admin.index')}}" :active="request()->routeIs('admin.index')">
+                        {{ __('Productos') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="" :active="request()->routeIs('admin.orders.*')">
+                        {{ __('Ordenes') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="" :active="request()->routeIs('admin.categories.*')">
+                        {{ __('Categorias') }}
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -97,7 +105,7 @@
                             </div>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                {{ __('Perfil') }}
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -109,12 +117,13 @@
                             <div class="border-t border-gray-100"></div>
 
                             <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}" x-data>
+                            <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
-                                         @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
+                                         onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                    {{ __('Cerrar sesión') }}
                                 </x-jet-dropdown-link>
                             </form>
                         </x-slot>
@@ -137,8 +146,16 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-jet-responsive-nav-link href="{{route('admin.index')}}" :active="request()->routeIs('admin.index')">
+                {{ __('Productos') }}
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="" :active="request()->routeIs('admin.orders.*')">
+                {{ __('Ordenes') }}
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="" :active="request()->routeIs('admin.categories.*')">
+                {{ __('Categorias') }}
             </x-jet-responsive-nav-link>
         </div>
 
@@ -146,7 +163,7 @@
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                    <div class="shrink-0 mr-3">
+                    <div class="flex-shrink-0 mr-3">
                         <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                     </div>
                 @endif
@@ -170,12 +187,13 @@
                 @endif
 
                 <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}" x-data>
+                <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
                     <x-jet-responsive-nav-link href="{{ route('logout') }}"
-                                   @click.prevent="$root.submit();">
-                        {{ __('Log Out') }}
+                                   onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                        {{ __('Cerrar sesión') }}
                     </x-jet-responsive-nav-link>
                 </form>
 

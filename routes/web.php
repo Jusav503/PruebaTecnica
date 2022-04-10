@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Livewire\ShowProducts;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +24,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
+    Route::get('/admin', ShowProducts::class)->name('admin.index');
     Route::get('api/products', [ProductController::class, "index"]);
     Route::get('api/products/{name}', [ProductController::class, "search"]);
 });
