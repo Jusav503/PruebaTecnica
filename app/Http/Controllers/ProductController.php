@@ -36,17 +36,6 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        return Product::find($id);
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -77,8 +66,8 @@ class ProductController extends Controller
      * @param  str  $name
      * @return \Illuminate\Http\Response
      */
-    public function search($id)
+    public function search($name)
     {
-        return Product::where('id', 'like', '%'.$id.'%')->with('subcategory')->get();
+        return Product::where('name', 'like', '%'.$name.'%')->with('subcategory')->get();
     }
 }
