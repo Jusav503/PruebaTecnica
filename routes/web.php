@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Livewire\ShowCategory;
 use App\Http\Livewire\ShowProducts;
 
 /*
@@ -25,6 +26,12 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/admin', ShowProducts::class)->name('admin.index');
+
+    Route::get('/admin/categories', function () {
+        return view('categories.index');
+    })->name('categories.index');
+    Route::get('categories/{category}', ShowCategory::class)->name('categories.show');
+
     Route::get('api/products', [ProductController::class, "index"]);
     Route::get('api/products/{name}', [ProductController::class, "search"]);
 });
