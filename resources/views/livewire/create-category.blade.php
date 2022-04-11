@@ -72,7 +72,7 @@
                                     <a class="pr-2 hover:text-blue-600 cursor-pointer"
                                         wire:click="edit('{{ $category->slug }}')">Editar</a>
                                     <a class="pl-2 hover:text-red-600 cursor-pointer"
-                                        wire:click="$emit('deleteCategory', '{{ $category->slug }}')">Eliminar</a>
+                                        wire:click="$emit('delete', '{{ $category->slug }}')">Eliminar</a>
                                 </div>
                             </td>
                         </tr>
@@ -114,7 +114,7 @@
 
                     <x-jet-input-error for="editForm.slug" />
                 </div>
-                
+
                 {{-- Image --}}
                 <div>
                     <x-jet-label>Imagen</x-jet-label>
