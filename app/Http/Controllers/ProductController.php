@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -69,5 +70,18 @@ class ProductController extends Controller
     public function search($name)
     {
         return Product::where('name', 'like', '%'.$name.'%')->with('subcategory')->get();
+    }
+
+    public function files(Product $product, Request $request){
+
+        $request->validate([
+            'file' => 'required|image|max:2048'
+        ]);
+
+        $url = Storage::put('products', $request->file('file')); //Primer parametro es carpeta. segundo parametro es el nombre por la que se está mandando el archivo
+
+        $product->images()->create([ //Relacionar las imagenes con los productos por medio de la tabla images 
+            'url' => $url
+        ]);
     }
 }

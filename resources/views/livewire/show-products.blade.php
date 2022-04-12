@@ -6,7 +6,7 @@
             </h2>
 
             <x-jet-button class="ml-auto">
-                <a href="">Agregar producto</a>
+                <a href="{{route('products.create')}}">Agregar producto</a>
             </x-jet-button>
         </div>
     </x-slot>
@@ -19,7 +19,7 @@
             </div>
 
             @if ($products->count())
-                <table class="min-w-full divide-y divide-gray-200">
+                <table class="w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
                             <th scope="col"
@@ -77,7 +77,7 @@
                                 </td>
                                 {{-- Edit --}}
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href=""
+                                    <a href="{{route('products.edit', $product)}}"
                                         class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                 </td>
                             </tr>

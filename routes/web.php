@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Livewire\CreateProduct;
+use App\Http\Livewire\EditProduct;
 use App\Http\Livewire\ShowCategory;
 use App\Http\Livewire\ShowProducts;
 
@@ -31,6 +33,10 @@ Route::middleware([
         return view('categories.index');
     })->name('categories.index');
     Route::get('categories/{category}', ShowCategory::class)->name('categories.show');
+
+    Route::get('products/create', CreateProduct::class)->name('products.create');
+    Route::get('products/{product}/edit', EditProduct::class)->name('products.edit');
+    Route::post('products/{product}/files', [ProductController::class, 'files'])->name('products.files');
 
     Route::get('api/products', [ProductController::class, "index"]);
     Route::get('api/products/{name}', [ProductController::class, "search"]);
