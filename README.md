@@ -30,3 +30,7 @@ Crear carpeta llamada "public" en direccion "pruebaTecnica/storage/app" luego ej
 php artisan storage:link
 ```
 8) Run migrations and seeders
+
+✅SOLUTION TO THE PROBLEM UPLOAD IMAGES
+On the project path "pruebaTecnica/storage/app" cut the "categories", "livewire-tmp", "products" folder and paste them inside the public folder
+
