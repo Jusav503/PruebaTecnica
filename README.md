@@ -31,6 +31,6 @@ php artisan storage:link
 ```
 8) Run migrations and seeders
 
-✅SOLUTION TO THE PROBLEM UPLOAD IMAGES
+✅SOLUTION TO THE PROBLEM UPLOAD IMAGES <br/>
 On the project path "pruebaTecnica/storage/app" cut the "categories", "livewire-tmp", "products" folder and paste them inside the public folder
 
