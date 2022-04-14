@@ -24,3 +24,9 @@ cp .env.example .env
 ```
 php artisan key:generate
 ```
+7) ⚠IMPORTANTE⚠
+Crear carpeta llamada "public" en direccion "pruebaTecnica/storage/app" luego ejecutar
+```
+php artisan storage:link
+```
+8) Run migrations and seeders
