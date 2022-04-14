@@ -24,8 +24,8 @@ cp .env.example .env
 ```
 php artisan key:generate
 ```
-7) ⚠IMPORTANTE⚠
-Crear carpeta llamada "public" en direccion "pruebaTecnica/storage/app" luego ejecutar
+7) ⚠IMPORTANT⚠
+Create folder called "public" in address "testTechnical/storage/app" then execute:
 ```
 php artisan storage:link
 ```
