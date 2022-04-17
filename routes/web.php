@@ -21,6 +21,7 @@ use App\Http\Livewire\ShowProducts;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('api/products', [ProductController::class, 'index']);
 
 Route::middleware([
     'auth:sanctum',
@@ -38,6 +39,7 @@ Route::middleware([
     Route::get('products/{product}/edit', EditProduct::class)->name('products.edit');
     Route::post('products/{product}/files', [ProductController::class, 'files'])->name('products.files');
 
-    Route::get('api/products', [ProductController::class, "index"]);
-    Route::get('api/products/{name}', [ProductController::class, "search"]);
+    // Route::get('api/products', [ProductController::class, 'index']);
+    Route::get('api/product/{name}', [ProductController::class, 'search']);
+    
 });

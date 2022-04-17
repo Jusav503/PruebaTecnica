@@ -1,4 +1,4 @@
-<div>
+<div class="w-1/2 mx-auto mt-10">
     {{-- Form --}}
     <x-jet-form-section submit="save" class="mb-6">
         <x-slot name="title">

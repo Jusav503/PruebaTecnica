@@ -1,4 +1,4 @@
-<div>
+<div class="w-1/2 mx-auto mt-10">
     {{-- Create category section --}}
     <x-jet-form-section submit="save" class="mb-6">
         <x-slot name="title">
@@ -39,7 +39,7 @@
     </x-jet-form-section>
 
     {{-- Edit and delete section --}}
-    <x-jet-action-section>
+    <x-jet-action-section class="w-full">
         <x-slot name="title">
             Lista de categorías
         </x-slot>

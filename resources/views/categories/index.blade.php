@@ -1,5 +1,3 @@
 <x-app-layout>
-    <div class="container py-12">
-        @livewire('create-category')
-    </div>
+    @livewire('create-category')
 </x-app-layout>
